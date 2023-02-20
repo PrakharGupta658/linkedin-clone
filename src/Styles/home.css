@@ -1,0 +1,15 @@
+* {
+    margin: 0%;
+    padding: 0%;
+  }
+  .main {
+    background-color: #f3f2ef;
+  }
+  .homeContainer {
+    gap: 2%;
+    width: 75%;
+    margin: auto;
+    display: flex;
+    padding-top: 80px;
+    font-family: sans-serif;
+  }

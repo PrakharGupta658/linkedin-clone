@@ -1,0 +1,81 @@
+.loginscreen{
+    margin:100px auto;
+    text-align: center;
+    min-width: 300px;
+    max-width: 500px;
+    width: 400px;
+    min-height: 50vh;
+    max-height: 55vh;
+    height: 550px;
+    background-color:white;
+    box-shadow: 0rem 0rem 1rem 0rem #0000004d;
+    margin: 0px 1rem;
+    border-radius: 20px;
+}
+.loginscreen img{
+    width:200px;
+    margin-bottom:20px;
+}
+.loginscreen input{
+    display: block;
+    height:40px;
+    width: 80%;
+    margin-bottom:10px;
+    padding:0px 10px;
+    margin: 10px auto;
+
+    border:1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.loginscreen input[type="submit"]{
+    border-radius: 0px;
+    background-color: #0077b5;
+    border:0;
+    color:#fff;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+.loginscreen h4 span{
+    color:#0077b5;
+    cursor:pointer;
+}
+.loginContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnlg{
+    border-radius: 0px;
+    background-color: #0077b5;
+    border:0;
+    color:#fff;
+    letter-spacing:2px;
+    cursor:pointer;
+    width: 80%;
+    height: 40px;
+}
+.btnlg:hover{
+    background-color:#0b547b;
+}
+
+h4{
+    margin-top: 15px;
+    font-family:Arial, Helvetica, sans-serif
+}
+.navlink{
+    text-decoration: none;
+}
+
+.btnlg1{
+    border-radius: 0px;
+    background-color: #09486a;
+    border:0;
+    color:#fff;
+    letter-spacing:2px;
+    cursor:pointer;
+    width: 80%;
+    height: 40px; 
+    margin-top: 10px;
+}

@@ -1,0 +1,30 @@
+
+@media (min-width: 390px) and (max-width: 920px) {
+    .rightSide {
+      display: none;
+    }
+    .homeContainer {
+      width: 90%;
+      margin: auto;
+    }
+  }
+  
+  @media (min-width: 921px) and (max-width: 1330px) {
+    .homeContainer {
+      width: 90%;
+    }
+  }
+   @media (max-width: 415px){
+     .main{
+       background-color: #fff;
+     }
+     .leftSide{
+       display: none;
+     }
+     .rightSide{
+       display: none;
+     }
+     .homeContainer{
+       width: 100%;
+     }
+   }

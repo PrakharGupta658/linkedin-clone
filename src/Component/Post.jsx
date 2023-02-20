@@ -37,22 +37,22 @@ function Post(props) {
   const currentMonth = currentDate.getMonth();
   const currentDay = currentDate.getDate();
   const [like, setLike] = useState("");
+  const [comment, setComment] = useState([]);
 
-  const handelLike=(icn)=>{
-    if(icn === "Like"){
-      if(like === ""){
+  const handelLike = (icn) => {
+    if (icn === "Like") {
+      if (like === "") {
         setLike(1);
-      }else{
-        setLike("")
+        console.log("comment");
+      } else {
+        setLike("");
       }
-         
     }
-    if(icn === "Comment"){
-        return(<>
-          <input type="text" />
-        </>) 
+    if (icn === "Comment") {
+    const cmt = prompt("enter your comment");
+           setComment((prev)=>[prev , cmt , "," ]);
     }
-  }
+  };
   return (
     <>
       <div className="postsMainDiv">
@@ -63,7 +63,9 @@ function Post(props) {
               <h4>{userName}</h4>
               <p>my post</p>
               <div className="postime">
-                <p>{currentDay}-{currentMonth + 1}-{currentYear}</p>
+                <p>
+                  {currentDay}-{currentMonth + 1}-{currentYear}
+                </p>
                 <div className="dot"></div>
                 <FontAwesomeIcon className="earthIcon" icon={faEarth} />
               </div>
@@ -95,12 +97,18 @@ function Post(props) {
               <FontAwesomeIcon icon={faHeart} />
             </div>
           </div>
-          <p style={{fontSize:"15px" , fontWeight:"700"}}>{like}</p>
+          <p style={{ fontSize: "15px", fontWeight: "700" }}>{like} <span style={{color:"gray" , margin: "0px 11vw"}}> {comment}</span></p>
         </div>
         <div className="hr"></div>
         <div className="viewerReactionMain">
           {icons.map((icn, i) => (
-            <div key={i} className="viewerReaction" onClick={()=>{handelLike(icn.text)}}>
+            <div
+              key={i}
+              className="viewerReaction"
+              onClick={() => {
+                handelLike(icn.text);
+              }}
+            >
               <h5>{icn.icon}</h5>
               <p>{icn.text}</p>
             </div>

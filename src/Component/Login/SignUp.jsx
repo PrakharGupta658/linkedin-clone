@@ -25,16 +25,6 @@ function SignUp() {
       setErrorMsg("!All fields are mandatory");
       return;
     }
-    toast.success("Login Successfully", {
-      position: "top-center",
-      autoClose: 1900,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
     SetBtnDisable(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
@@ -44,11 +34,22 @@ function SignUp() {
           displayName: name,
           photoURL: photoURL,
         });
+        toast.success("Login Successfully", {
+          position: "top-center",
+          autoClose: 1900,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         // console.log("user is" , user);
         navigate("/home");
       })
       .catch((err) => {
         setErrorMsg(err);
+        navigate("/");
         SetBtnDisable(false);
         alert("already signup")
       });

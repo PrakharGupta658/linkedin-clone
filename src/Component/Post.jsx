@@ -38,6 +38,8 @@ function Post(props) {
   const currentDay = currentDate.getDate();
   const [like, setLike] = useState("");
   const [comment, setComment] = useState([]);
+  const [commentText, setCommentText] = useState("");
+  const [displayVal, SetdisplayVal] = useState("none");
 
   const handelLike = (icn) => {
     if (icn === "Like") {
@@ -48,10 +50,22 @@ function Post(props) {
         setLike("");
       }
     }
+
     if (icn === "Comment") {
-    const cmt = prompt("enter your comment");
-           setComment((prev)=>[prev , cmt , "," ]);
+      if(displayVal === "none"){
+      SetdisplayVal("block")
+      }else{
+        SetdisplayVal("none")
+      }
     }
+  };
+
+  const handelTextPost = (e) => {
+    e.preventDefault();
+    setComment((prev) => [prev, commentText, ","]);
+    setCommentText("");
+    SetdisplayVal("none")
+
   };
   return (
     <>
@@ -97,7 +111,13 @@ function Post(props) {
               <FontAwesomeIcon icon={faHeart} />
             </div>
           </div>
-          <p style={{ fontSize: "15px", fontWeight: "700" }}>{like} <span style={{color:"gray" , margin: "0px 11vw"}}> {comment}</span></p>
+          <p style={{ fontSize: "15px", fontWeight: "700" }}>
+            {like}{" "}
+            <span style={{ color: "gray", margin: "0px 11vw" }}>
+              {" "}
+              {comment}
+            </span>
+          </p>
         </div>
         <div className="hr"></div>
         <div className="viewerReactionMain">
@@ -109,11 +129,37 @@ function Post(props) {
                 handelLike(icn.text);
               }}
             >
-              <h5>{icn.icon}</h5>
+              <h5
+                style={{
+                  color: icn.text === "Like" && like === 1 ? "#378fe9" : null,
+                }}
+              >
+                {icn.icon}
+              </h5>
               <p>{icn.text}</p>
             </div>
           ))}
         </div>
+
+        <div className="middleSide" style={{display: displayVal}}>
+          <div className="top">
+            <div className="searchDiv">
+              <img src={userPhoto} alt="prakhar" />
+              <form onSubmit={handelTextPost} style={{ width: "100%" }}>
+                <input
+                  className="postInput"
+                  type="text"
+                  placeholder="Add a comment...."
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                />
+                <input type="submit" style={{ display: "none" }} />
+              </form>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </>
   );
